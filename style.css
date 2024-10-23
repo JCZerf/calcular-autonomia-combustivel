@@ -1,0 +1,58 @@
+body{
+    background-color: slategrey;
+}
+
+h1{
+    color: blue;
+    text-align: center;
+    border: solid;
+    font-size: 70px;
+    background-color: white;
+}
+
+h2{ 
+    color: blue;
+    text-align: center;
+    border: solid;
+    font-size: 40px;
+    background-color: white;
+}
+
+input{
+    border: solid;
+    font-size: 40px;
+    text-align: center;
+}
+
+button{
+    background-color: black;
+    color: blue;
+    box-shadow: 0px 0px 20px 0px rgba(24, 117, 232, 0.50);
+    cursor: pointer;
+    border: solid;
+    font-size: 40px;
+    text-align: center;
+    border-color: black;
+}
+
+label{
+    background-color: black;
+    color: blue;
+    font-size: 2rem;
+    border: solid;
+    border-color: black;
+}
+
+.lista {
+    color: rgb(0, 0, 143);
+    font-style: italic;
+    font-size: 3rem;
+    padding-left: 1.5rem;
+}
+
+img{
+    width: 300px;
+    position: absolute;
+    left: 990px;
+    bottom: 50%;
+}

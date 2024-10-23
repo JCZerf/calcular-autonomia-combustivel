@@ -25,9 +25,13 @@ function calcular() {
     let calculoTempoViagem = calcularTempoViagem(distaciaTotal, velocidadeMedia);
     let quantidadeCombustivel = calcularQuantidadeCombustivel(distaciaTotal, kilometrosPorLitro);
     let precoDaViagem = calculaGastoViagem(precoCombustivel, quantidadeCombustivel);
+    calculoTempoViagem = calculoTempoViagem.toFixed(2);
+    calculoTempoViagem = calculoTempoViagem.toString();
+    let horas = calculoTempoViagem.split('.')[0];
+    let minutos = calculoTempoViagem.split('.')[1];
 
     let resultadoTempoDaviagem = document.getElementById("tempo-viagem");
-    resultadoTempoDaviagem.innerHTML = `<big><b> ${calculoTempoViagem.toFixed(2)} Hrs </b></big>`;
+    resultadoTempoDaviagem.innerHTML = `<big><b> ${horas}h${minutos}min </b></big>`;
 
     let resultadoQuantidadeDeCombustivel = document.getElementById("quantidade-combustivel");
     resultadoQuantidadeDeCombustivel.innerHTML = `<big><b>${quantidadeCombustivel.toFixed(2)} LT</b></big>`;

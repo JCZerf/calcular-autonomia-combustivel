@@ -1,8 +1,3 @@
-document.getElementById('distancia-km').value = 0;
-document.getElementById('consumo-lt').value = 10;
-document.getElementById('velocidade-km').value = 80;
-document.getElementById('preco-combustivel').value = 6.33;
-
 function calcular() {
     let distaciaTotal = document.getElementById('distancia-km').value;
     let kilometrosPorLitro = document.getElementById('consumo-lt').value;
@@ -25,19 +20,21 @@ function calcular() {
     let calculoTempoViagem = calcularTempoViagem(distaciaTotal, velocidadeMedia);
     let quantidadeCombustivel = calcularQuantidadeCombustivel(distaciaTotal, kilometrosPorLitro);
     let precoDaViagem = calculaGastoViagem(precoCombustivel, quantidadeCombustivel);
+    
     calculoTempoViagem = calculoTempoViagem.toFixed(2);
     calculoTempoViagem = calculoTempoViagem.toString();
+    
     let horas = calculoTempoViagem.split('.')[0];
     let minutos = calculoTempoViagem.split('.')[1];
 
     let resultadoTempoDaviagem = document.getElementById("tempo-viagem");
     resultadoTempoDaviagem.innerHTML = `<big><b> ${horas}h${minutos}min </b></big>`;
-
+    
     let resultadoQuantidadeDeCombustivel = document.getElementById("quantidade-combustivel");
-    resultadoQuantidadeDeCombustivel.innerHTML = `<big><b>${quantidadeCombustivel.toFixed(2)} LT</b></big>`;
+    resultadoQuantidadeDeCombustivel.innerHTML = `<big><b>${quantidadeCombustivel.toFixed(2)}LT</b></big>`;
 
     let resultadoDoPrecoDaViagem = document.getElementById("valor-viagem");
-    resultadoDoPrecoDaViagem.innerHTML = `<big><b>${precoDaViagem.toFixed(2)} R$</b></big>`;
+    resultadoDoPrecoDaViagem.innerHTML = `<big><b>${precoDaViagem.toFixed(2)}R$</b></big>`;
     console.log(horas);
     
 }

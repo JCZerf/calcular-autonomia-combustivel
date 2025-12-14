@@ -140,4 +140,4 @@ Se tiver alguma dúvida ou sugestão, entre em contato!
 
 ---
 
-Desenvolvido com ❤️ para facilitar seus cálculos de viagem.
+Desenvolvido byZerfLeite para facilitar seus cálculos de viagem.

@@ -1,58 +1,281 @@
-body{
-    background-color: slategrey;
+:root {
+  /* --- Nova Paleta: Deep Orange, Black & White --- */
+  --primary: #ff4500; /* Laranja Profundo vibrante (OrangeRed) */
+  --primary-dark: #cc3700; /* Tom mais escuro para hover */
+  --accent: #ff6b35; /* Um laranja de apoio para degradês e ícones secundários */
+
+  /* Gradiente de fundo marcante */
+  --bg-gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+
+  /* Textos de alto contraste */
+  --text-main: #212121; /* Quase preto, mais suave que #000 */
+  --text-light: #757575; /* Cinza médio para rótulos */
+
+  --white: #ffffff;
+  /* Sombra mais marcada para destacar o card branco do fundo laranja */
+  --card-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  --input-bg: #fafafa; /* Fundo dos inputs levemente mais claro */
 }
 
-h1{
-    color: blue;
-    text-align: center;
-    border: solid;
-    font-size: 70px;
-    background-color: white;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h2{ 
-    color: blue;
-    text-align: center;
-    border: solid;
-    font-size: 40px;
-    background-color: white;
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
 }
 
-input{
-    border: solid;
-    font-size: 40px;
-    text-align: center;
+/* Container e Card */
+.container {
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  z-index: 2;
 }
 
-button{
-    background-color: black;
-    color: blue;
-    box-shadow: 0px 0px 20px 0px rgba(24, 117, 232, 0.50);
-    cursor: pointer;
-    border: solid;
-    font-size: 40px;
-    text-align: center;
-    border-color: black;
+.card {
+  background: var(--white);
+  border-radius: 24px;
+  box-shadow: var(--card-shadow);
+  padding: 2.5rem;
+  animation: slideUp 0.6s ease-out;
 }
 
-label{
-    background-color: black;
-    color: blue;
-    font-size: 2rem;
-    border: solid;
-    border-color: black;
+/* Header */
+.card-header {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-.lista {
-    color: rgb(0, 0, 143);
-    font-style: italic;
-    font-size: 2rem;
-    padding-left: 1.5rem;
+.icon-header {
+  width: 60px;
+  height: 60px;
+  /* Fundo laranja com transparência */
+  background: rgba(255, 69, 0, 0.1);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 1rem;
 }
 
-img{
-    width: 300px;
-    position: absolute;
-    left: 990px;
-    bottom: 50%;
+.card-header h1 {
+  font-size: 1.5rem;
+  color: var(--text-main);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.card-header p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Grid de Inputs */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.input-wrapper label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-main); /* Rótulos mais escuros agora */
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon i {
+  position: absolute;
+  left: 15px;
+  color: #bdbdbd; /* Ícone inativo cinza claro */
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.input-icon input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 2px solid #e0e0e0; /* Borda padrão sutil */
+  background: var(--input-bg);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: all 0.3s;
+}
+
+/* Foco no input: Borda e ícone laranja */
+.input-icon input:focus {
+  outline: none;
+  background: var(--white);
+  border-color: var(--primary);
+  /* Sombra de foco laranja suave */
+  box-shadow: 0 0 0 4px rgba(255, 69, 0, 0.15);
+}
+
+.input-icon input:focus + i {
+  color: var(--primary);
+}
+
+/* Botões */
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-primary {
+  flex: 1;
+  background: var(--bg-gradient);
+  color: var(--white);
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  /* Sombra laranja ao passar o mouse */
+  box-shadow: 0 10px 20px rgba(255, 69, 0, 0.3);
+  /* Fica ligeiramente mais escuro no hover */
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark) 0%,
+    var(--primary) 100%
+  );
+}
+
+.btn-reset {
+  background: #eeeeee;
+  color: var(--text-light);
+  border: none;
+  width: 50px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+
+.btn-reset:hover {
+  background: #e0e0e0;
+  color: var(--text-main);
+}
+
+/* Área de Resultados (Dashboard) */
+.results-dashboard {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding-top: 2rem;
+  border-top: 1px solid #eeeeee;
+}
+
+.result-card {
+  background: var(--input-bg);
+  padding: 15px;
+  border-radius: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid transparent;
+}
+
+.result-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-color: #eee;
+}
+
+.result-card i {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.result-card span {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.result-card strong {
+  font-size: 1.2rem;
+  color: var(--text-main);
+  margin-top: 5px;
+  font-weight: 800;
+}
+
+/* Card de Destaque (Custo Total) */
+.result-card.highlight {
+  grid-column: span 2;
+  /* Fundo laranja muito suave */
+  background: rgba(255, 69, 0, 0.04);
+  border: 1px solid rgba(255, 69, 0, 0.1);
+}
+
+.result-card.highlight i {
+  color: var(--primary);
+}
+
+.result-card.highlight strong {
+  color: var(--primary);
+  font-size: 1.6rem;
+}
+
+/* Animação de Entrada */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade Mobile */
+@media (max-width: 480px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    padding: 1.5rem;
+  }
+  .btn-primary {
+    font-size: 0.8rem;
+  }
 }

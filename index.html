@@ -1,37 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autonomia de combustível</title>
-    <link rel="Stylesheet" href="style.css">
-</head>
-<body>
-    <img src="img/bomba.jpg" alt="Bomba de combustível">
-    <h1>Calculo de consumo de combustível</h1>
-    <label for="distancia-km"><b>Distancia Total</b></label>
-    <input type="number" name="distacia" id="distancia-km" placeholder="Insira a distancia">
-    <br><br>
-    <label for="consumo-lt"><b>Km-Litro</b></label>
-    <input type="number" name="consumo" id="consumo-lt" placeholder="Insira a autonomia">
-    <br><br>
-    <label for="velocidade-km"><b>Velocidade Média</b></label>
-    <input type="number" name="velocidade" id="velocidade-km" placeholder="Insira a velocidade média">
-    <br><br>
-    <label for="preco-combustivel"><b>Preço Combustível</b></label>
-    <input type="number" name="preco" id="preco-combustivel" placeholder="Insira o preço">
-    <br><br>
-    <button onclick="calcular()">Calcular</button>
-    <br><br>
-    <button onclick="resetar()">Limpar</button>
-    <script src="app.js"></script>
-    <h2>Resultados</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planeje sua viagem</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-shapes"></div>
 
-            <ul class="lista">
-                <li>Tempo da viagem <span id="tempo-viagem">0 Hrs</span></li>
-                <li>Quantidade de combustível necessario <span id="quantidade-combustivel">0 Lt</span></li>
-                <li>Valor da viagem <span id="valor-viagem">0 R$</span></li>
-                
-            </ul>
-</body>
+    <div class="container">
+      <div class="card">
+        <header class="card-header">
+          <div class="icon-header">
+            <i class="fa-solid fa-gas-pump"></i>
+          </div>
+          <h1>Viagem planejada</h1>
+          <p>Planejamento inteligente de viagem</p>
+        </header>
+
+        <main>
+          <form onsubmit="event.preventDefault(); calcular();">
+            <div class="form-grid">
+              <div class="input-wrapper">
+                <label for="distancia-km">Distância (km)</label>
+                <div class="input-icon">
+                  <i class="fa-solid fa-route"></i>
+                  <input
+                    type="number"
+                    id="distancia-km"
+                    placeholder="Ex: 250"
+                  />
+                </div>
+              </div>
+
+              <div class="input-wrapper">
+                <label for="consumo-lt">Consumo (km/L)</label>
+                <div class="input-icon">
+                  <i class="fa-solid fa-gauge-high"></i>
+                  <input type="number" id="consumo-lt" placeholder="Ex: 12" />
+                </div>
+              </div>
+
+              <div class="input-wrapper">
+                <label for="velocidade-km">Velocidade (km/h)</label>
+                <div class="input-icon">
+                  <i class="fa-solid fa-stopwatch"></i>
+                  <input
+                    type="number"
+                    id="velocidade-km"
+                    placeholder="Ex: 80"
+                  />
+                </div>
+              </div>
+
+              <div class="input-wrapper">
+                <label for="preco-combustivel">Preço (R$)</label>
+                <div class="input-icon">
+                  <i class="fa-solid fa-dollar-sign"></i>
+                  <input
+                    type="number"
+                    id="preco-combustivel"
+                    placeholder="Ex: 5.49"
+                    step="0.01"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="btn-primary">
+                CALCULAR AGORA <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              <button type="button" onclick="resetar()" class="btn-reset">
+                <i class="fa-solid fa-rotate-left"></i>
+              </button>
+            </div>
+          </form>
+        </main>
+
+        <footer class="results-dashboard">
+          <div class="result-card">
+            <i class="fa-regular fa-clock"></i>
+            <span>Tempo</span>
+            <strong id="tempo-viagem">--:--</strong>
+          </div>
+
+          <div class="result-card">
+            <i class="fa-solid fa-droplet"></i>
+            <span>Litros</span>
+            <strong id="quantidade-combustivel">--</strong>
+          </div>
+
+          <div class="result-card highlight">
+            <i class="fa-solid fa-wallet"></i>
+            <span>Custo Total</span>
+            <strong id="valor-viagem">R$ 0,00</strong>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
 </html>
